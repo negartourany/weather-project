@@ -10,16 +10,17 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
     />
     <link rel="stylesheet" href="src/style.css" />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
   </head>
   <body>
     <div class="container">
       <div class="weather-app-wrapper">
         <div class="weather-app">
           <div class="overview">
-            <h1>New York, NY, USA</h1>
+            <h1 id="cityName">New York, NY, USA</h1>
             <ul>
               <li>Friday 08:00</li>
-              <li>Clear</li>
+              <li id="weather-stat">Clear</li>
             </ul>
             <div class="row" id="info">
               <div class="col-6">
@@ -38,9 +39,8 @@
               </div>
               <div class="col-6">
                 <ul>
-                  <li>Precipitation: 0%</li>
-                  <li>Humidity: 32%</li>
-                  <li>Wind: 2km/h</li>
+                  <li>Humidity: <span id="humid">32</span>%</li>
+                  <li>Wind: <span id="wind-stat">2</span>km/h</li>
                 </ul>
               </div>
             </div>
