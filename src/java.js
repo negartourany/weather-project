@@ -22,8 +22,9 @@ function formatDate(timestamp) {
 }
 function displayTemp(response) {
   console.log(response.data);
+  celsiusTemp = response.data.main.temp;
   let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  temperatureElement.innerHTML = Math.round(celsiusTemp);
   let weatherStat = document.querySelector("#weather-stat");
   weatherStat.innerHTML = response.data.weather[0].description;
   let cityName = document.querySelector("#cityName");
@@ -52,6 +53,28 @@ function handleSubmit(event) {
   let cityInput = document.querySelector("#city-input");
   search(cityInput.value);
 }
-search("Paris");
+
+function displayfahrenheit(event) {
+  event.preventDefault();
+  let test = document.querySelector("#temperature");
+  let fahrenheitTemp = celsiusTemp * (9 / 5) + 32;
+  test.innerHTML = Math.round(fahrenheitTemp);
+}
+function displayCelsius(event) {
+  event.preventDefault();
+  let test = document.querySelector("#temperature");
+  test.innerHTML = Math.round(celsiusTemp);
+}
+
+let celsiusTemp = null;
+
 let form = document.querySelector("#weather-form");
 form.addEventListener("submit", handleSubmit);
+
+let fahrenheit = document.querySelector("#fahrenheit-link");
+fahrenheit.addEventListener("click", displayfahrenheit);
+
+let celsius = document.querySelector("#celsius");
+celsius.addEventListener("click", displayCelsius);
+
+search("Paris");
