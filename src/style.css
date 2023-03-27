@@ -59,6 +59,19 @@ ul {
 .farenheit {
   text-decoration: none;
 }
+.temp-forcast {
+  text-align: center;
+  margin-top: 20px;
+}
+.temp-day {
+  font-size: 16px;
+}
+.temp-max-min {
+  font-size: 16px;
+}
+.forcast-temp-min {
+  color: #878787;
+}
 #info {
   margin-top: 20px;
 }
