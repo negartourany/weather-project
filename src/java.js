@@ -20,6 +20,14 @@ function formatDate(timestamp) {
   let day = days[date.getDay()];
   return `${day} ${hours}:${minutes}`;
 }
+
+function getForcast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "654b4feb287b99dec3603cc2d01ca282";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForcast);
+}
 function displayTemp(response) {
   console.log(response.data);
   celsiusTemp = response.data.main.temp;
@@ -41,6 +49,7 @@ function displayTemp(response) {
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+  getForcast(response.data.coord);
 }
 function search(city) {
   let apiKey = "654b4feb287b99dec3603cc2d01ca282";
